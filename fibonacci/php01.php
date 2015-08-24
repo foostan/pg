@@ -1,16 +1,16 @@
 <?php
 
-function feb($a, $b, $n)
+define("N", 1000);
+
+function feb($a, $b)
 {
     $arr = Array($b);
 
-    if ($a < $n) {
-        $arr = array_merge($arr, feb($a + $b, $a, $n));
+    if ($a < N) {
+        return array_merge($arr, feb($a + $b, $a));
+    } else {
+        return $arr;
     }
-
-    return $arr;
 }
 
-foreach (feb(1, 0, 1000) as $i) {
-    echo $i, "\n";
-}
+print_r(feb(1, 0));
